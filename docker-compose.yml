@@ -19,7 +19,7 @@ services:
       labels:
         - traefik.enable=true
         - traefik.http.routers.whoami.entrypoints=web
-        - traefik.http.routers.whoami.rule=Host(`whoami.$MY_DOMAIN`)
+        - traefik.http.routers.whoami.rule=Host(`whoami-local.$MY_DOMAIN`)
 
   reactapp:
     container_name: reactapp
@@ -30,7 +30,7 @@ services:
     labels:
       - traefik.enable=true
       - traefik.http.routers.reactapp.entrypoints=web
-      - traefik.http.routers.reactapp.rule=Host(`reactapp.$MY_DOMAIN`)
+      - traefik.http.routers.reactapp.rule=Host(`reactapp-local.$MY_DOMAIN`)
 
   webapi:
     container_name: webapi
@@ -42,7 +42,7 @@ services:
     labels:
       - traefik.enable=true
       - traefik.http.routers.webapi.entrypoints=web
-      - traefik.http.routers.webapi.rule=Host(`api.$MY_DOMAIN`)
+      - traefik.http.routers.webapi.rule=Host(`api-local.$MY_DOMAIN`)
       - traefik.http.services.webapi.loadbalancer.server.port=80
 
   webapi2:
@@ -55,7 +55,7 @@ services:
     labels:
       - traefik.enable=true
       - traefik.http.routers.webapi.entrypoints=web
-      - traefik.http.routers.webapi.rule=Host(`api.$MY_DOMAIN`)
+      - traefik.http.routers.webapi.rule=Host(`api-local.$MY_DOMAIN`)
       - traefik.http.services.webapi.loadbalancer.server.port=80
 
 networks:
